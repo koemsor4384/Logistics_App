@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLTS Cambodia - Login</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Background image matching the warehouse/trucks aesthetic */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Language Selector Top Right */
+        .lang-selector {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            font-weight: 500;
+            color: #1f2937;
+        }
+
+        /* Login Card */
+        .login-card {
+            background-color: white;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 480px;
+            padding: 48px 40px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 640px) {
+            body {
+                background-attachment: scroll; /* Better for mobile performance */
+            }
+
+            .lang-selector {
+                top: 16px;
+                right: 16px;
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+
+            .login-card {
+                padding: 32px 24px;
+                margin: 0 16px;
+                width: 100%;
+                max-width: none;
+            }
+
+            .title {
+                font-size: 24px;
+            }
+        }
+
+        /* Title */
+        .title {
+            color: #4385ff;
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: #1f2937;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        /* Input Container */
+        .input-group {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .input-field {
+            width: 100%;
+            background-color: #dbeafe;
+            /* Light blue-100 mimicking the image */
+            border: 1px solid transparent;
+            /* No visible border initially */
+            border-radius: 6px;
+            padding: 16px 48px 16px 20px;
+            font-size: 15px;
+            color: #374151;
+            transition: all 0.2s;
+            outline: none;
+        }
+
+        .input-field:focus {
+            background-color: #eff6ff;
+            border-color: #93c5fd;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .input-field::placeholder {
+            color: #6b7280;
+            opacity: 0.8;
+        }
+
+        /* Input Icons inside the container (aligned to the right) */
+        .input-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #4b5563;
+            /* slate-600 */
+            font-size: 18px;
+            pointer-events: none;
+            /* Let clicks pass through to input */
+        }
+
+        /* Password Eye Icon - make it clickable */
+        .eye-icon {
+            pointer-events: auto;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .eye-icon:hover {
+            color: #1d4ed8;
+        }
+
+        /* Login Button */
+        .login-btn {
+            width: 100%;
+            background-color: #0ea5e9;
+            /* Light blue/cyan from the image */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 14px;
+            font-size: 17px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            margin-top: 16px;
+        }
+
+        .login-btn:hover {
+            background-color: #0284c7;
+        }
+
+        .login-btn:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Language Selector Dropdown (Top Right) -->
+    <div class="lang-selector">
+        <!-- Mock UK Flag using an image -->
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png"
+            alt="UK Flag" class="w-6 h-[14px] object-cover border border-gray-200">
+        <span>EN</span>
+        <i class="fa-solid fa-chevron-down text-[12px] text-gray-500 ml-1"></i>
+    </div>
+
+    <!-- Main Login Container -->
+    <div class="login-card">
+
+        <!-- Header Text -->
+        <h1 class="title">DLTS Cambodia</h1>
+        <p class="subtitle">Domestic Logistic Tracking - Gen-Z-UI</p>
+
+        <!-- Login Form -->
+        <form
+            onsubmit="event.preventDefault(); alert('Please allow location access to continue.'); window.location.href='recaptcha.html';">
+
+            <!-- Email Input -->
+            <div class="input-group">
+                <input type="text" class="input-field" placeholder="Username or Email" value="koemsor@dlts" required>
+                <!-- User outline icon -->
+                <i class="fa-regular fa-user input-icon"></i>
+            </div>
+
+            <!-- Password Input -->
+            <div class="input-group">
+                <!-- Using type="password" to hide characters by default, but match image placeholder visually -->
+                <input type="password" id="password" class="input-field" value="secretpassword123" required>
+                <!-- Eye outline icon -->
+                <i class="fa-regular fa-eye input-icon eye-icon" onclick="togglePassword()" id="eyeIcon"></i>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="login-btn">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                <span>Login</span>
+            </button>
+
+        </form>
+
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
+</body>
+
+</html>
